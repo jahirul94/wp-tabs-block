@@ -4,11 +4,13 @@ import {
 	BlockControls,
 	InspectorControls,
 	useBlockProps,
-	MediaReplaceFlow
+	MediaReplaceFlow,
+	RichText
 } from '@wordpress/block-editor';
-import { TabPanel, PanelBody, TextareaControl, ToolbarButton } from '@wordpress/components';
+import { TabPanel, PanelBody, TextareaControl, ToolbarButton, ColorPalette } from '@wordpress/components';
 import Tab from './components/Tab';
 import { tabFunctions } from './components/Functions';
+import { ColorPicker } from '@wordpress/components';
 
 
 function Edit({ attributes, setAttributes }) {
@@ -18,26 +20,35 @@ function Edit({ attributes, setAttributes }) {
 		setAttributes({ tabs_data: tabName });
 	};
 
-	const onSelectURL = (newURL) => {
-		setAttributes({
-			url: newURL,
-			id: undefined,
-			alt: '',
-		});
+	const onSelectURL = (newURL, tabs_data) => {
+		console.log(newURL, tabs_data)
+		switch (tabs_data) {
+			case 'tab1':
+				setAttributes({ url1: newURL, id1: undefined, alt1: '' });
+				break;
+			case 'tab2':
+				setAttributes({ url2: newURL, id2: undefined, alt2: '' });
+				break;
+			case 'tab3':
+				setAttributes({ url3: newURL, id3: undefined, alt3: '' });
+				break;
+			default:
+				break;
+		}
 	};
 	const onChangeAlt = (value) => {
 		setAttributes({ alt1: value });
 	}
 
-	const removeImage = (id) => {
-		switch (id) {
-			case '1':
+	const removeImage = (tab) => {
+		switch (tab) {
+			case 'tab1':
 				setAttributes({ url1: undefined, alt1: undefined, id1: undefined });
 				break;
-			case '2':
+			case 'tab2':
 				setAttributes({ url2: undefined, alt2: undefined, id2: undefined });
 				break;
-			case '3':
+			case 'tab3':
 				setAttributes({ url3: undefined, alt3: undefined, id3: undefined });
 				break;
 			default:
@@ -45,8 +56,18 @@ function Edit({ attributes, setAttributes }) {
 		}
 	};
 
+
+	const onChangeTitle = (v) => {
+		console.log(v)
+	}
+
+	const onChangeColor = (value) => {
+		console.log(value);
+	}
+
 	return (
 		<div {...useBlockProps()}>
+			{/* tabs setting panel  */}
 			<InspectorControls>
 				<PanelBody>
 					<TextareaControl
@@ -57,23 +78,34 @@ function Edit({ attributes, setAttributes }) {
 							'wp-demo-tab'
 						)}
 					/>
+					<RichText
+						placeholder={__('Enter your title', 'wp-demo-tab')}
+						tagName="p"
+						onChange={onChangeTitle}
+						value=''
+					/>
+					<ColorPicker onChange={onChangeColor} />
+
 				</PanelBody>
 			</InspectorControls>
+			{/* image replace functionality here  */}
 			{(url1 || url2 || url3) && (
-				<BlockControls group="inline">
+				<BlockControls>
 					<MediaReplaceFlow
 						name={__('Replace Image', 'wp-demo-tab')}
-						onSelect={onSelectImage}
-						onSelectURL={onSelectURL}
+						onSelect={(image) => onSelectImage(image, tabs_data, setAttributes)}
+						onSelectURL={(newURL) => onSelectURL(newURL, tabs_data)}
 						accept="image/*"
 						allowedTypes={['image']}
 						mediaId={id1}
 					/>
-					<ToolbarButton onClick={removeImage}>
+					<ToolbarButton onClick={() => removeImage(tabs_data)}>
 						{__('Remove Image', 'wp-demo-tab')}
 					</ToolbarButton>
 				</BlockControls>
 			)}
+
+			{/* All tab display here  */}
 			<TabPanel
 				className="my-tab-panel"
 				activeClass="active-tab"
@@ -98,14 +130,15 @@ function Edit({ attributes, setAttributes }) {
 			>
 				{(tab) => (
 					<div>
+						{/* Tab components comes from components folder that makes code short */}
 						{
-							tab.name === 'tab1' && <Tab onSelectImage={(image) => onSelectImage(image, tabs_data, setAttributes)} url={url1} onSelectURL={onSelectURL} alt={alt1}></Tab>
+							tab.name === 'tab1' && <Tab onSelectImage={(image) => onSelectImage(image, tabs_data, setAttributes)} url={url1} onSelectURL={(newURL) => onSelectURL(newURL, tabs_data)} alt={alt1}></Tab>
 						}
 						{
-							tab.name === 'tab2' && <Tab onSelectImage={(image) => onSelectImage(image, tabs_data, setAttributes)} url={url2} onSelectURL={onSelectURL} alt={alt2}></Tab>
+							tab.name === 'tab2' && <Tab onSelectImage={(image) => onSelectImage(image, tabs_data, setAttributes)} url={url2} onSelectURL={(newURL) => onSelectURL(newURL, tabs_data)} alt={alt2}></Tab>
 						}
 						{
-							tab.name === 'tab3' && <Tab onSelectImage={(image) => onSelectImage(image, tabs_data, setAttributes)} url={url3} onSelectURL={onSelectURL} alt={alt3}></Tab>
+							tab.name === 'tab3' && <Tab onSelectImage={(image) => onSelectImage(image, tabs_data, setAttributes)} url={url3} onSelectURL={(newURL) => onSelectURL(newURL, tabs_data)} alt={alt3}></Tab>
 						}
 					</div>
 				)}
