@@ -1,12 +1,36 @@
-/**
- * The following styles get applied both on the front of your site
- * and in the editor.
- *
- * Replace them with your own styles or remove the file completely.
- */
+.components-tab-panel__tabs {
+	margin-bottom: 2px;
+	border-bottom: 2px solid gray;
+	display: flex;
+	justify-content: space-between;
+	// padding: 0px 10px;
+}
 
-.wp-block-create-block-wp-demo-tab {
-	background-color: #21759b;
+.components-tab-panel__tab-content {
+	text-align: center;
+}
+
+.tab_image {
+	overflow: hidden;
+	max-width: 100%;
+	max-height: auto;
+	display: block;
+}
+
+.tab-button {
+	display: inline-block;
+	// padding: 8px 16px;
+	width: calc(100% / 3);
+	border: 2px solid rgb(241 245 249);
+	color: black;
+	text-decoration: none;
+	font-size: 16px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.tab-button:hover {
+	background-color: rgb(203 213 225);
 	color: #fff;
-	padding: 2px;
 }

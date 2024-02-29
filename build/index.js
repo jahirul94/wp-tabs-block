@@ -2,6 +2,98 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/components/Functions.js":
+/*!*************************************!*\
+  !*** ./src/components/Functions.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   tabFunctions: () => (/* binding */ tabFunctions)
+/* harmony export */ });
+const onSelectImage = (image, tabName, setAttributes) => {
+  if (!image || !image.url) {
+    setAttributes({
+      url: undefined,
+      id: undefined,
+      alt: ''
+    });
+    return;
+  }
+  switch (tabName) {
+    case 'tab1':
+      setAttributes({
+        url1: image.url,
+        id1: image.id,
+        alt1: image.alt
+      });
+      break;
+    case 'tab2':
+      setAttributes({
+        url2: image.url,
+        id2: image.id,
+        alt2: image.alt
+      });
+      break;
+    case 'tab3':
+      setAttributes({
+        url3: image.url,
+        id3: image.id,
+        alt3: image.alt
+      });
+      break;
+    default:
+      break;
+  }
+};
+const tabFunctions = {
+  onSelectImage
+};
+
+/***/ }),
+
+/***/ "./src/components/Tab.js":
+/*!*******************************!*\
+  !*** ./src/components/Tab.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+function Tab({
+  url,
+  onSelectImage,
+  onSelectURL,
+  alt
+}) {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.MediaPlaceholder, {
+    icon: "admin-users",
+    onSelect: onSelectImage,
+    onSelectURL: onSelectURL,
+    accept: "image/*",
+    allowedTypes: ['image'],
+    disableMediaButtons: url
+  }), url && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: 'tab_image'
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+    src: url,
+    alt: alt
+  })));
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Tab);
+
+/***/ }),
+
 /***/ "./src/edit.js":
 /*!*********************!*\
   !*** ./src/edit.js ***!
@@ -10,58 +102,141 @@
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Edit)
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./editor.scss */ "./src/editor.scss");
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./editor.scss */ "./src/editor.scss");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _components_Tab__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/Tab */ "./src/components/Tab.js");
+/* harmony import */ var _components_Functions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/Functions */ "./src/components/Functions.js");
 
 
 
 
-// import {
-// 	Spinner,
-// 	withNotices,
-// 	ToolbarButton,
-// 	PanelBody,
-// 	TextareaControl,
-// 	SelectControl,
-// 	Icon,
-// 	Tooltip,
-// 	,
-// 	Button,
-// } from '@wordpress/components';
 
 
-const onSelect = tabName => {
-  console.log('Selecting tab', tabName);
-};
-function Edit() {
+
+function Edit({
+  attributes,
+  setAttributes
+}) {
+  const {
+    url1,
+    url2,
+    url3,
+    id1,
+    id2,
+    id3,
+    alt1,
+    alt2,
+    alt3,
+    tabs_data
+  } = attributes;
+  const {
+    onSelectImage
+  } = _components_Functions__WEBPACK_IMPORTED_MODULE_6__.tabFunctions;
+  const onSelect = tabName => {
+    setAttributes({
+      tabs_data: tabName
+    });
+  };
+  const onSelectURL = newURL => {
+    setAttributes({
+      url: newURL,
+      id: undefined,
+      alt: ''
+    });
+  };
+  const onChangeAlt = value => {
+    setAttributes({
+      alt1: value
+    });
+  };
+  const removeImage = id => {
+    switch (id) {
+      case '1':
+        setAttributes({
+          url1: undefined,
+          alt1: undefined,
+          id1: undefined
+        });
+        break;
+      case '2':
+        setAttributes({
+          url2: undefined,
+          alt2: undefined,
+          id2: undefined
+        });
+        break;
+      case '3':
+        setAttributes({
+          url3: undefined,
+          alt3: undefined,
+          id3: undefined
+        });
+        break;
+      default:
+        break;
+    }
+  };
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_4__.useBlockProps)()
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_5__.TabPanel, {
+    ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useBlockProps)()
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.TextareaControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Alt Text', 'wp-demo-tab'),
+    onChange: onChangeAlt,
+    help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Alternative text describe your image to people cant see it.', 'wp-demo-tab')
+  }))), (url1 || url2 || url3) && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.BlockControls, {
+    group: "inline"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.MediaReplaceFlow, {
+    name: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Replace Image', 'wp-demo-tab'),
+    onSelect: onSelectImage,
+    onSelectURL: onSelectURL,
+    accept: "image/*",
+    allowedTypes: ['image'],
+    mediaId: id1
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.ToolbarButton, {
+    onClick: removeImage
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Remove Image', 'wp-demo-tab'))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.TabPanel, {
     className: "my-tab-panel",
     activeClass: "active-tab",
     onSelect: onSelect,
     tabs: [{
       name: 'tab1',
       title: 'Tab 1',
-      className: 'tab-one'
+      className: 'tab-button'
     }, {
       name: 'tab2',
       title: 'Tab 2',
-      className: 'tab-two'
+      className: 'tab-button'
+    }, {
+      name: 'tab3',
+      title: 'Tab 3',
+      className: 'tab-button'
     }]
-  }, tab => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, tab.title)));
+  }, tab => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, tab.name === 'tab1' && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Tab__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    onSelectImage: image => onSelectImage(image, tabs_data, setAttributes),
+    url: url1,
+    onSelectURL: onSelectURL,
+    alt: alt1
+  }), tab.name === 'tab2' && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Tab__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    onSelectImage: image => onSelectImage(image, tabs_data, setAttributes),
+    url: url2,
+    onSelectURL: onSelectURL,
+    alt: alt2
+  }), tab.name === 'tab3' && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Tab__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    onSelectImage: image => onSelectImage(image, tabs_data, setAttributes),
+    url: url3,
+    onSelectURL: onSelectURL,
+    alt: alt3
+  }))));
 }
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Edit);
 
 /***/ }),
 
@@ -104,10 +279,33 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
 
 
-function save() {
-  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+function save({
+  attributes
+}) {
+  const {
+    url1,
+    url2,
+    url3,
+    id1,
+    id2,
+    id3,
+    alt1,
+    alt2,
+    alt3,
+    tabs_data
+  } = attributes;
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save()
-  }, 'Wp Demo Tab – hello from the saved content!');
+  }, url1 && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+    src: url1,
+    alt: alt1
+  }), url2 && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+    src: url2,
+    alt: alt2
+  }), url3 && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+    src: url3,
+    alt: alt3
+  }));
 }
 
 /***/ }),
@@ -173,16 +371,6 @@ module.exports = window["wp"]["blocks"];
 /***/ ((module) => {
 
 module.exports = window["wp"]["components"];
-
-/***/ }),
-
-/***/ "@wordpress/element":
-/*!*********************************!*\
-  !*** external ["wp","element"] ***!
-  \*********************************/
-/***/ ((module) => {
-
-module.exports = window["wp"]["element"];
 
 /***/ }),
 

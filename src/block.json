@@ -3,12 +3,70 @@
 	"name": "create-block/wp-demo-tab",
 	"version": "0.1.0",
 	"title": "Wp Demo Tab",
+	"keywords": [
+		"tab",
+		"tab panel",
+		"tabs"
+	],
 	"category": "widgets",
-	"icon": "smiley",
+	"icon": "table-row-before",
 	"description": "Example block scaffolded with Create Block tool.",
 	"example": {},
 	"supports": {
 		"html": false
+	},
+	"attributes": {
+		"id1": {
+			"type": "number"
+		},
+		"alt1": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "img",
+			"attribute": "alt",
+			"default": ""
+		},
+		"url1": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "img",
+			"attribute": "src"
+		},
+		"id2": {
+			"type": "number"
+		},
+		"alt2": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "img",
+			"attribute": "alt",
+			"default": ""
+		},
+		"url2": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "img",
+			"attribute": "src"
+		},
+		"id3": {
+			"type": "number"
+		},
+		"alt3": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "img",
+			"attribute": "alt",
+			"default": ""
+		},
+		"url3": {
+			"type": "string",
+			"source": "attribute",
+			"selector": "img",
+			"attribute": "src"
+		},
+		"tabs_data": {
+			"type": "string"
+		}
 	},
 	"textdomain": "wp-demo-tab",
 	"editorScript": "file:./index.js",
