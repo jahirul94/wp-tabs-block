@@ -66,6 +66,14 @@
 		},
 		"tabs_data": {
 			"type": "string"
+		},
+		"border_color": {
+			"type": "string",
+			"default": "#fff"
+		},
+		"title": {
+			"type": "string",
+			"default": "Demo tile of tab panel"
 		}
 	},
 	"textdomain": "wp-demo-tab",

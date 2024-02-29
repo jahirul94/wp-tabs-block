@@ -137,7 +137,9 @@ function Edit({
     alt1,
     alt2,
     alt3,
-    tabs_data
+    tabs_data,
+    border_color,
+    title
   } = attributes;
   const {
     onSelectImage
@@ -207,11 +209,15 @@ function Edit({
         break;
     }
   };
-  const onChangeTitle = v => {
-    console.log(v);
+  const onChangeTabTitle = title => {
+    setAttributes({
+      title: title
+    });
   };
   const onChangeColor = value => {
-    console.log(value);
+    setAttributes({
+      border_color: value
+    });
   };
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useBlockProps)()
@@ -219,11 +225,6 @@ function Edit({
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Alt Text', 'wp-demo-tab'),
     onChange: onChangeAlt,
     help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Alternative text describe your image to people cant see it.', 'wp-demo-tab')
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.RichText, {
-    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enter your title', 'wp-demo-tab'),
-    tagName: "p",
-    onChange: onChangeTitle,
-    value: ""
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.ColorPicker, {
     onChange: onChangeColor
   }))), (url1 || url2 || url3) && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.BlockControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.MediaReplaceFlow, {
@@ -252,7 +253,12 @@ function Edit({
       title: 'Tab 3',
       className: 'tab-button'
     }]
-  }, tab => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, tab.name === 'tab1' && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Tab__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }, tab => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.RichText, {
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Title', 'wp-demo-tab'),
+    tagName: "p",
+    onChange: onChangeTabTitle,
+    value: title
+  }), tab.name === 'tab1' && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Tab__WEBPACK_IMPORTED_MODULE_5__["default"], {
     onSelectImage: image => onSelectImage(image, tabs_data, setAttributes),
     url: url1,
     onSelectURL: newURL => onSelectURL(newURL, tabs_data),
@@ -319,9 +325,6 @@ function save({
     url1,
     url2,
     url3,
-    id1,
-    id2,
-    id3,
     alt1,
     alt2,
     alt3,

@@ -7,14 +7,16 @@ import {
 	MediaReplaceFlow,
 	RichText
 } from '@wordpress/block-editor';
-import { TabPanel, PanelBody, TextareaControl, ToolbarButton, ColorPalette } from '@wordpress/components';
+import { TabPanel, PanelBody, TextareaControl, ToolbarButton } from '@wordpress/components';
 import Tab from './components/Tab';
 import { tabFunctions } from './components/Functions';
 import { ColorPicker } from '@wordpress/components';
 
 
 function Edit({ attributes, setAttributes }) {
-	const { url1, url2, url3, id1, id2, id3, alt1, alt2, alt3, tabs_data } = attributes;
+	const { url1, url2, url3, id1, id2, id3, alt1,
+		alt2, alt3, tabs_data, border_color, title } = attributes;
+
 	const { onSelectImage } = tabFunctions;
 	const onSelect = (tabName) => {
 		setAttributes({ tabs_data: tabName });
@@ -57,12 +59,12 @@ function Edit({ attributes, setAttributes }) {
 	};
 
 
-	const onChangeTitle = (v) => {
-		console.log(v)
+	const onChangeTabTitle = (title) => {
+		setAttributes({ title: title });
 	}
 
 	const onChangeColor = (value) => {
-		console.log(value);
+		setAttributes({ border_color: value });
 	}
 
 	return (
@@ -77,12 +79,6 @@ function Edit({ attributes, setAttributes }) {
 							'Alternative text describe your image to people cant see it.',
 							'wp-demo-tab'
 						)}
-					/>
-					<RichText
-						placeholder={__('Enter your title', 'wp-demo-tab')}
-						tagName="p"
-						onChange={onChangeTitle}
-						value=''
 					/>
 					<ColorPicker onChange={onChangeColor} />
 
@@ -131,6 +127,12 @@ function Edit({ attributes, setAttributes }) {
 				{(tab) => (
 					<div>
 						{/* Tab components comes from components folder that makes code short */}
+						<RichText
+							placeholder={__('Title', 'wp-demo-tab')}
+							tagName="p"
+							onChange={onChangeTabTitle}
+							value={title}
+						/>
 						{
 							tab.name === 'tab1' && <Tab onSelectImage={(image) => onSelectImage(image, tabs_data, setAttributes)} url={url1} onSelectURL={(newURL) => onSelectURL(newURL, tabs_data)} alt={alt1}></Tab>
 						}
