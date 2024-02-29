@@ -1,0 +1,18 @@
+{
+	"apiVersion": 3,
+	"name": "create-block/wp-demo-tab",
+	"version": "0.1.0",
+	"title": "Wp Demo Tab",
+	"category": "widgets",
+	"icon": "smiley",
+	"description": "Example block scaffolded with Create Block tool.",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "wp-demo-tab",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}
