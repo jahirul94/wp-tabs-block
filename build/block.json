@@ -30,7 +30,8 @@
       "type": "string",
       "source": "attribute",
       "selector": "img",
-      "attribute": "src"
+      "attribute": "src",
+      "default": ""
     },
     "id2": {
       "type": "number"
@@ -46,7 +47,8 @@
       "type": "string",
       "source": "attribute",
       "selector": "img",
-      "attribute": "src"
+      "attribute": "src",
+      "default": ""
     },
     "id3": {
       "type": "number"
@@ -62,18 +64,35 @@
       "type": "string",
       "source": "attribute",
       "selector": "img",
-      "attribute": "src"
+      "attribute": "src",
+      "default": ""
     },
     "tabs_data": {
       "type": "string"
     },
-    "border_color": {
+    "title1": {
       "type": "string",
-      "default": "#fff"
+      "default": ""
     },
-    "title": {
+    "title2": {
       "type": "string",
-      "default": "Demo tile of tab panel"
+      "default": ""
+    },
+    "title3": {
+      "type": "string",
+      "default": ""
+    },
+    "tab1": {
+      "type": "string",
+      "default": "Tab 1"
+    },
+    "tab2": {
+      "type": "string",
+      "default": "Tab 2"
+    },
+    "tab3": {
+      "type": "string",
+      "default": "Tab 3"
     }
   },
   "textdomain": "wp-demo-tab",

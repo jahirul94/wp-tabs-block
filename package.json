@@ -20,6 +20,7 @@
 	"dependencies": {
 		"@wordpress/block-editor": "^12.20.0",
 		"@wordpress/components": "^27.0.0",
-		"@wordpress/element": "^5.29.0"
+		"@wordpress/element": "^5.29.0",
+		"react-tabs": "^6.0.2"
 	}
 }
