@@ -122,33 +122,11 @@ const onChangeAlt = (newAlt, currentTab, setAttributes) => {
       break;
   }
 };
-const onChangeTabTitle = (title, current_tab, setAttributes) => {
-  switch (current_tab) {
-    case 'tab1':
-      setAttributes({
-        title1: title
-      });
-      break;
-    case 'tab2':
-      setAttributes({
-        title2: title
-      });
-      break;
-    case 'tab3':
-      setAttributes({
-        title3: title
-      });
-      break;
-    default:
-      break;
-  }
-};
 const tabFunctions = {
   onSelectImage,
   onSelectURL,
   removeImage,
-  onChangeAlt,
-  onChangeTabTitle
+  onChangeAlt
 };
 
 /***/ }),
@@ -250,26 +228,19 @@ function Edit({
     url1,
     url2,
     url3,
-    id1,
-    id2,
-    id3,
     alt1,
     alt2,
     alt3,
     tab1,
     tab2,
     tab3,
-    tabs_data,
-    title1,
-    title2,
-    title3
+    tabs_data
   } = attributes;
   const {
     onSelectImage,
     onSelectURL,
     removeImage,
-    onChangeAlt,
-    onChangeTabTitle
+    onChangeAlt
   } = _components_Functions__WEBPACK_IMPORTED_MODULE_6__.tabFunctions;
   const onSelect = tabName => {
     setAttributes({
@@ -299,14 +270,7 @@ function Edit({
   };
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.useBlockProps)()
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.RichText.Content, {
-    tagName: "h4",
-    value: "Enter Your Title"
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("br", null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.RichText, {
-    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Title', 'wp-demo-tab'),
-    tagName: "p",
-    onChange: t => onChangeTabTitle(t, tabs_data, setAttributes)
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.TextareaControl, {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.TextareaControl, {
     label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Alt Text', 'wp-demo-tab'),
     onChange: text => onChangeAlt(text, tabs_data, setAttributes),
     help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Alternative text describe your image to people cant see it.', 'wp-demo-tab')
@@ -357,20 +321,17 @@ function Edit({
     onSelectImage: image => onSelectImage(image, tabs_data, setAttributes),
     url: url1,
     onSelectURL: newURL => onSelectURL(newURL, tabs_data, setAttributes),
-    alt: alt1,
-    title: title1
+    alt: alt1
   }), tab.name === 'tab2' && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Tab__WEBPACK_IMPORTED_MODULE_5__["default"], {
     onSelectImage: image => onSelectImage(image, tabs_data, setAttributes),
     url: url2,
     onSelectURL: newURL => onSelectURL(newURL, tabs_data, setAttributes),
-    alt: alt2,
-    title: title2
+    alt: alt2
   }), tab.name === 'tab3' && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_Tab__WEBPACK_IMPORTED_MODULE_5__["default"], {
     onSelectImage: image => onSelectImage(image, tabs_data, setAttributes),
     url: url3,
     onSelectURL: newURL => onSelectURL(newURL, tabs_data, setAttributes),
-    alt: alt3,
-    title: title3
+    alt: alt3
   }))));
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Edit);
@@ -434,36 +395,58 @@ function save({
     tab1,
     tab2,
     tab3,
-    tabs_data,
-    title1,
-    title2,
-    title3
+    title1
   } = attributes;
   const TabButton = ({
-    text
+    text1,
+    text2,
+    text3
   }) => {
-    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
-      className: "tab-button",
-      onClick: c => console.log(c)
-    }, text);
+    return [(0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+      id: "btn-tab1",
+      className: "tab-button"
+    }, text1), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+      id: "btn-tab2",
+      className: "tab-button"
+    }, text2), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+      id: "btn-tab3",
+      className: "tab-button"
+    }, text3)];
+  };
+  const TabImage = () => {
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+      className: "tab_image_frontend",
+      src: url1,
+      alt: alt1
+    });
   };
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save()
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "panel__tabs_frontend"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(TabButton, {
-    text: tab1
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
-    className: "tab-button"
-  }, tab2), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
-    className: "tab-button"
-  }, tab3)), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    text1: tab1,
+    text2: tab2,
+    text3: tab3
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "tab_image"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
     value: title1
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-    src: url1,
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(TabImage, null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+    type: "hidden",
+    value: url1,
+    className: "hidden1",
     alt: alt1
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+    type: "hidden",
+    value: url2,
+    className: "hidden2",
+    alt: alt2
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+    type: "hidden",
+    value: url3,
+    className: "hidden3",
+    alt: alt3
   })));
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (save);

@@ -29,3 +29,9 @@ function wp_demo_tab_wp_demo_tab_block_init() {
 	register_block_type( __DIR__ . '/build' );
 }
 add_action( 'init', 'wp_demo_tab_wp_demo_tab_block_init' );
+
+function wp_assets_enqueue() {
+	wp_enqueue_script( 'wp-custom-js', plugin_dir_url( __FILE__ ) . './src/js/frontend-tab.js', array( 'jquery' ), time(), true );
+}
+
+add_action( 'wp_enqueue_scripts', 'wp_assets_enqueue' );

@@ -13,7 +13,6 @@ import {
 	PanelBody,
 	TextareaControl,
 	ToolbarButton,
-	Tooltip,
 	ButtonGroup,
 	Button,
 } from '@wordpress/components';
@@ -25,9 +24,6 @@ function Edit({ attributes, setAttributes }) {
 		url1,
 		url2,
 		url3,
-		id1,
-		id2,
-		id3,
 		alt1,
 		alt2,
 		alt3,
@@ -35,9 +31,6 @@ function Edit({ attributes, setAttributes }) {
 		tab2,
 		tab3,
 		tabs_data,
-		title1,
-		title2,
-		title3,
 	} = attributes;
 
 	const {
@@ -45,7 +38,6 @@ function Edit({ attributes, setAttributes }) {
 		onSelectURL,
 		removeImage,
 		onChangeAlt,
-		onChangeTabTitle,
 	} = tabFunctions;
 
 	const onSelect = (tabName) => {
@@ -73,15 +65,6 @@ function Edit({ attributes, setAttributes }) {
 			{ /* tabs setting panel  */}
 			<InspectorControls>
 				<PanelBody>
-					<RichText.Content tagName="h4" value="Enter Your Title" />
-					<br />
-					<RichText
-						placeholder={__('Title', 'wp-demo-tab')}
-						tagName="p"
-						onChange={(t) =>
-							onChangeTabTitle(t, tabs_data, setAttributes)
-						}
-					/>
 					<TextareaControl
 						label={__('Alt Text', 'wp-demo-tab')}
 						onChange={(text) =>
@@ -191,7 +174,6 @@ function Edit({ attributes, setAttributes }) {
 									)
 								}
 								alt={alt1}
-								title={title1}
 							></Tab>
 						)}
 						{tab.name === 'tab2' && (
@@ -212,7 +194,6 @@ function Edit({ attributes, setAttributes }) {
 									)
 								}
 								alt={alt2}
-								title={title2}
 							></Tab>
 						)}
 						{tab.name === 'tab3' && (
@@ -233,7 +214,6 @@ function Edit({ attributes, setAttributes }) {
 									)
 								}
 								alt={alt3}
-								title={title3}
 							></Tab>
 						)}
 					</div>
