@@ -1,4 +1,5 @@
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./src/components/Functions.js":
@@ -7,7 +8,6 @@
   \*************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   tabFunctions: () => (/* binding */ tabFunctions)
@@ -137,7 +137,6 @@ const tabFunctions = {
   \*******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -181,23 +180,12 @@ function Tab({
 
 /***/ }),
 
-/***/ "./src/components/fun.js":
-/*!*******************************!*\
-  !*** ./src/components/fun.js ***!
-  \*******************************/
-/***/ (() => {
-
-const button1 = document.getElementById('button1');
-
-/***/ }),
-
 /***/ "./src/edit.js":
 /*!*********************!*\
   !*** ./src/edit.js ***!
   \*********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -344,7 +332,6 @@ function Edit({
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
@@ -368,7 +355,6 @@ __webpack_require__.r(__webpack_exports__);
   \*********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
@@ -377,9 +363,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _components_fun__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/fun */ "./src/components/fun.js");
-/* harmony import */ var _components_fun__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_components_fun__WEBPACK_IMPORTED_MODULE_2__);
-
 
 
 function save({
@@ -459,7 +442,6 @@ function save({
   \*************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
@@ -472,7 +454,6 @@ __webpack_require__.r(__webpack_exports__);
   \************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
@@ -485,7 +466,6 @@ __webpack_require__.r(__webpack_exports__);
   \************************/
 /***/ ((module) => {
 
-"use strict";
 module.exports = window["React"];
 
 /***/ }),
@@ -496,7 +476,6 @@ module.exports = window["React"];
   \*************************************/
 /***/ ((module) => {
 
-"use strict";
 module.exports = window["wp"]["blockEditor"];
 
 /***/ }),
@@ -507,7 +486,6 @@ module.exports = window["wp"]["blockEditor"];
   \********************************/
 /***/ ((module) => {
 
-"use strict";
 module.exports = window["wp"]["blocks"];
 
 /***/ }),
@@ -518,7 +496,6 @@ module.exports = window["wp"]["blocks"];
   \************************************/
 /***/ ((module) => {
 
-"use strict";
 module.exports = window["wp"]["components"];
 
 /***/ }),
@@ -529,7 +506,6 @@ module.exports = window["wp"]["components"];
   \******************************/
 /***/ ((module) => {
 
-"use strict";
 module.exports = window["wp"]["i18n"];
 
 /***/ })

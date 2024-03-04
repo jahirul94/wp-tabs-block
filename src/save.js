@@ -1,5 +1,5 @@
 import { RichText, useBlockProps } from '@wordpress/block-editor';
-import './components/fun';
+
 
 function save({ attributes }) {
 	const {
